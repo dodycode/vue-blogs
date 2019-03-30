@@ -1,28 +1,72 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MainNav />
+
+    <main>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </main>
+
+    <FooterCopyright />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainNav from './components/MainNav.vue';
+import FooterCopyright from './components/FooterCopyright.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    MainNav,
+    FooterCopyright
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 54px;
+}
+
+main {
+  height: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
+
+.fade-enter-active {
+  transition-delay: .25s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>
